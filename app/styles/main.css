@@ -1,0 +1,251 @@
+.fa-volume-up{
+    cursor: pointer;
+}
+.prepare-practice-img{
+    padding-left: 5em;
+}
+/*Complete congratulations*/
+.congratulation-text{
+    font-size: 2em;
+}
+.congratulation-img{
+    width: 70%;
+}
+.practice-call{
+    font-size: 2em;
+}
+/*Input text test*/
+.input-text-test-answer{
+    font-size: 2em;
+    width: 60%;
+    height: 2.5em;
+    border-radius: 5px;
+    border: 1px solid #e3e3e3;
+    padding: 8px;
+}
+.true-answer{
+    color: #5cb85c; 
+}
+.wrong-answer{
+    color: #a94442;
+}
+
+/*Card Test*/
+.card-test{
+    text-transform: capitalize;
+}
+.card-test-choice{
+    padding: 1em;
+    margin: 1em;
+    font-size: 1.3em;
+}
+/*Card view*/
+.card-view, .card-test, .input-text-test, .complete-practice, .prepare-practice{
+    border: 1px solid #eee;
+    margin: 2em;
+    padding: 2em;
+    min-height: 400px;
+}
+.card-view-meaning{
+    font-size: 2em;
+    font-style: oblique;
+}
+.card-view-word, .card-word, .card-question{
+    font-size: 3em;
+    padding-bottom: 1em;
+}
+.card-content,.card-question{
+    padding-bottom: 2em;
+    text-transform: capitalize;
+}
+.next-activity{
+    font-size: 2em;
+    width: 10em;
+    margin-top: 2em;
+}
+/*Practice options*/
+.practice-room{
+    background-color: #fff;
+    border-radius: 10px;
+    min-height: 400px;
+    text-align: center;
+}
+.practice-option{
+    text-align: center;
+    margin-bottom: 1em;
+}
+.route-choice-icon{
+    font-size: 8em;
+    color: green;
+    padding: 0.5em;
+    margin: 0.5em;
+    background-color: #ccc;
+    border: 2px solid #fff;
+}
+.gamepad-text{
+    font-size: 3em;
+}
+/*Practice content*/
+.practice-btn {
+    width: 100%;
+    font-size: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 1em;
+} 
+.word-in-box{
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.word-in-box:hover .delete-icon{
+    display: block !important;
+    cursor: pointer;
+    /*.delete-icon{*/
+        /*display:none !important;*/
+    /*};*/
+    /*.fa-times{*/
+        /*display:none !important;*/
+    /*}*/
+}
+.word-in-box .delete-icon {
+    display: none;
+}
+/*Surf content*/
+.word-heading{
+    font-weight: 600;
+    font-size: 2em;
+    text-transform: capitalize;
+    border-bottom: 1px solid #31708f;
+    margin-bottom: 1em;
+}
+.word-heading .word-query{
+    color: #FF6B6B;
+}
+.surf-content{
+    padding-right: 2em;
+}
+i.bookmark-sign{
+    color: #666;
+}
+.small-col{
+    padding-left: 3em;
+}
+.practice-info{
+    /*background-color: #ccc;*/
+}
+.surf-content .word-heading .word-query{
+    padding-right: 30px;
+}
+.word-heading .remembered{
+    color: #F38630;
+    cursor: pointer;
+}
+.word-content-box {
+    padding: 1em;
+    margin: 0.5em;
+    background-color: #fff;
+    border-color:#e5e6e9 #dfe0e4 #d0d1d5;
+}
+.word-content-box .view-more{
+    text-align: right;
+    cursor: pointer;
+}
+.word-definition-text{
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: 0.5em;
+}
+.word-content-box .google-text-helper{
+    font-size: .8em;
+    color: #888888;
+    text-align: right;
+}
+.word-content-box .google-text-translated{
+    padding-bottom: 1em;
+    font-size: 1.3em;
+}
+.word-pos {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+ul.word-forms li.word-form{
+    display: inline-block;
+    margin-right: .5em;
+
+}
+li.word-form .word{
+    font-weight:bold;
+}
+li.word-form .form{
+    font-size: .8em;
+    color: #888888;
+}
+.word-example{
+    color: #888888;
+}
+
+/* Space out content a bit */
+body {
+    background-color: #e0e4cc;
+    padding: 0px;
+    margin: 0 auto !important;
+}
+/* Custom page header */
+.header {
+    background-color: #008289;
+    border-bottom: 1px solid #a7dbe8;
+    height: 4em;
+}
+.header .text-muted{
+    font-size: 2.5em;
+    color: #fff;
+    padding-left: 3.6em;
+    /*margin-top: 1em;*/
+    margin-bottom: 0;
+    line-height: 1.5em;
+    padding-bottom: 2em;
+    display: inline;
+}
+.form-word-search{
+    display: inline;
+    width: 100%;
+}
+.search-box {
+    /*background: #fff;*/
+    border-radius: 6px;
+    border: 1px solid #e3e3e3;
+    border-bottom-color: #d4d4d4;
+    color: #393939;
+    font-size: 18px;
+    margin-bottom: 32px;
+    padding: 8px 50px 8px 16px; 
+    height: 3em; 
+    width: 100%;
+}
+@media (min-width: 768px) {
+    .container {
+        /*max-width: 730px;*/
+    }
+}
+.container-narrow > hr {
+    margin: 30px 0;
+}
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
