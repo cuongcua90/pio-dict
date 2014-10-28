@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('pioDictApp')
-.directive('cardTest', function (utilsFactory, $timeout) {
+.directive('cardTest', function (utilsFactory, $timeout, config) {
     return {
-        templateUrl: '/views/templates/card-test.html',
+        templateUrl: config.prefixUrl+'/views/templates/cardTest.html',
         restrict: 'A',
         scope: {
             cardData: '=',
@@ -13,7 +13,6 @@ angular.module('pioDictApp')
             onFinishTest: '&'
         },
         link: function postLink(scope, element, attrs) {
-            console.log('link');
             scope.createQuiz = function(){
                 scope.cardIdChoice = undefined;
                 var quizIndexArr = utilsFactory.getRandomsArray(scope.cardData.length,scope.numQuiz,parseInt(scope.cardId));
@@ -36,13 +35,13 @@ angular.module('pioDictApp')
                 scope.cardIdChoice = cardIdChoice;
                 $timeout(function(){
                     scope.onFinishTest({isTrue: scope.cardIdChoice == scope.cardId});
-                    //scope.createQuiz();
                 },1000);
             };
-            scope.keyPress = function(e){
-                console.log(e.which);
-            };
             scope.createQuiz();
+
+            scope.$watch('cardId',function(){
+                scope.createQuiz();
+            });
         }
     };
 });

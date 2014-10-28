@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('pioDictApp')
-.directive('cardView', function () {
+.directive('cardView', function (config) {
     return {
-        templateUrl: '/views/templates/cardView.html',
+        templateUrl:config.prefixUrl+ '/views/templates/cardView.html',
         restrict: 'A',
         scope: {
             cardData: '=',

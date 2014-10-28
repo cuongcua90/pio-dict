@@ -1,22 +1,19 @@
 'use strict';
 
-angular.module('pioDictApp') .controller('PracticeCtrl', function ($scope, wordRemember, utilsFactory,Cards) { 
-    $scope.prefixUrl = "/dict";
+angular.module('pioDictApp') .controller('PracticeCtrl', function ($scope, wordRemember, utilsFactory,Cards, config, $http) { 
+    $scope.prefixUrl = config.prefixUrl;
     $scope.score = 0;
-    $scope.reviewing = true;
-    $scope.wordList = wordRemember.get('word-history');
     $scope.cards = [];    
     $scope.practiceOption = 5;
     $scope.practiceStatus = "prepare";
-    $scope.cardId = 1;
-    $scope.cards = $scope.wordList.slice(0, $scope.practiceOption);
-    Cards = [
-            {word: 'hello', box: 0, meaning: 'xin chao'},{word:'test', box: 0, meaning: 'kiem tra'},{word:'number', box: 0, meaning: 'so'},{word:'activity', box: 0, meaning: 'hoat dong'}
-        ];
+    $scope.wordList = wordRemember.get('word-history');
+    $scope.cards = angular.copy($scope.wordList.slice(0, $scope.practiceOption));
     //$scope.cards = Cards;
     $scope.preparePractice = function(){
+        $scope.wordList = wordRemember.get('word-history');
         $scope.practiceStatus = "practicing";
         $scope.reviewing = false; 
+        $scope.cards = angular.copy($scope.wordList.slice(0, $scope.practiceOption));
     };
     $scope.isCompleted = function(){
         for (var i = 0; i<$scope.cards.length; i++){
@@ -62,8 +59,10 @@ angular.module('pioDictApp') .controller('PracticeCtrl', function ($scope, wordR
         if(isCorrect){
             $scope.score += 10;
             $scope.cards[$scope.cardId].box++;
+            if($scope.cards[$scope.cardId].box === 4){
+                wordRemember.deleteWord($scope.cards[$scope.cardId].word);
+            }
             if(!$scope.isCompleted()){
-                console.log("next activity");
                 $scope.nextActivity();
             }
             else{
@@ -75,18 +74,4 @@ angular.module('pioDictApp') .controller('PracticeCtrl', function ($scope, wordR
             $scope.reviewing = true;
         }
     };
-     $scope.nextTest= function(){
-        do {
-            var randomNum = utilsFactory.randomInteger(4); 
-        }
-        while($scope.cardsData.data[randomNum].box >3);
-        $scope.cardId = randomNum;
-        if($scope.cardsData.data[randomNum].box === 0){
-            $scope.reviewing = true;
-        }
-        else {
-            $scope.reviewing = false;
-        }
-    };
-
 });

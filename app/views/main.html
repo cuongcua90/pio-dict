@@ -1,7 +1,7 @@
 <div>
     <div class="surf-content col-md-8 big-col">
-        <div ng-enter="dictSearch()"class="form-word-search">
-            <input type="text" class="search-box" ng-model="query"/>
+        <div ng-enter="dictSearch()" class="form-word-search">
+            <input type="text" class="search-box" autofocus="autofocus" ng-model="query" placeholder="Search your word here"/>
             <!--<button type="submit" class="btn btn-search" ng-click="dictSearch()">Search</button>-->
         </div>
 
@@ -9,7 +9,7 @@
             <i class="fa fa-star remembered" ng-click="wordRemember.deleteWord(queryText)" ng-show="wordRemember.inWordList(queryText)!=-1"></i>
             <i class="fa fa-star bookmark-sign" ng-click="addWord()" ng-show="wordRemember.inWordList(queryText)==-1"></i>
             <span class="word-query">{{queryText}}</span>
-            <i class="fa fa-volume-up pull-right" ng-click="speak(query)"></i>
+            <i class="fa fa-volume-up pull-right" ng-click="speak(queryText)"></i>
         </div>
         <div class="word-content-box quick-meaning" ng-if="googleTranslateResult">
             <div class="google-text-translated">
@@ -64,7 +64,7 @@
 
 </div>
 <div class="small-col col-md-4">
-    <a href="{{prefixUrl}}#/practice" class="practice-btn btn btn-warning">Practice ({{wordHistory.length}})</a>
+    <a href="{{prefixUrl}}/#/practice" class="practice-btn btn btn-warning">Practice ({{wordHistory.length}})</a>
     <div class="word-box-list list-group">
         <a class="word-in-box list-group-item" ng-repeat="word in wordHistory">
             {{word.word}}

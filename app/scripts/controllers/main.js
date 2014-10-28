@@ -1,14 +1,18 @@
 'use strict';
 
 angular.module('pioDictApp')
-.controller('MainCtrl', ['$scope','dictFactory', 'localStorageService','wordRemember','$speechSynthetis',function ($scope, dictFactory, localStorageService, wordRemember, $speechSynthetis) {
+.controller('MainCtrl', ['$scope','dictFactory', 'localStorageService','wordRemember','$speechSynthetis','config',function ($scope, dictFactory, localStorageService, wordRemember, $speechSynthetis, config) {
     $scope.wordRemember = wordRemember;
-    $scope.prefixUrl = "/dict/"
+    $scope.prefixUrl = config.prefixUrl;
     $scope.wordHistory = $scope.wordRemember.get("word-history");
     $scope.dictSearch = function(){
+        var numCallback = 0;
         dictFactory.googleAutomaticTranslate($scope.query, function(text){
             $scope.googleTranslateResult = text;
-            console.log(text);
+            numCallback ++;
+            if(numCallback===2){
+                $scope.addWord();
+            }
         });
         dictFactory.googleDictionarySearch($scope.query, function(res){
             $scope.googleDictionaryResult = res;
@@ -16,7 +20,10 @@ angular.module('pioDictApp')
                 $scope.queryText = $scope.googleDictionaryResult.dictionary.word;
             }
             else $scope.queryText = $scope.query;
-            console.log(res);
+            numCallback ++;
+            if(numCallback===2){
+                $scope.addWord();
+            }
         });
         //dictFactory.duolingoSeach($scope.query, function(res){
             //$scope.duolingoSearchResult = res;
@@ -43,6 +50,6 @@ angular.module('pioDictApp')
         wordRemember.add(word);
     };
     $scope.speak = function(query){
-        $speechSynthetis.speak(query,'en-UK');
+        $speechSynthetis.speak(query,'en-US');
     }
 }]);

@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('pioDictApp')
-.directive('inputTextTest', function ($timeout) {
+.directive('inputTextTest', function ($timeout, config) {
     return {
-        templateUrl: '/views/templates/input-text-test.html',
+        templateUrl: config.prefixUrl+'/views/templates/input-text-test.html',
         restrict: 'A',
         scope: {
             cardData: '=',

@@ -2,11 +2,15 @@
 
 angular.module('pioDictApp')
 .value('config', {
-    googleKey: "AIzaSyAjLkDRFwGpQgUMRKDyQAHXSXcTt2kCBy4",
     langSource:"en",
     langTarget:"vi",
     googleTranslateUrl: "https://www.googleapis.com/language/translate/v2",
     googleDictionaryUrl: "https://www.googleapis.com/scribe/v1/research",
     googleDictionaryKey: "AIzaSyDqVYORLCUXxSv7zneerIgC2UYMnxvPeqQ",
-    prefixUrl: ""
+    // local
+    //prefixUrl: "",
+    //googleKey: "AIzaSyC7rhChLBS3VRj7hIaVJa8X-CsiZ8M0r_Y",
+    // build
+    prefixUrl: "/dict",
+    googleKey: "AIzaSyAjLkDRFwGpQgUMRKDyQAHXSXcTt2kCBy4",
 });
